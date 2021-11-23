@@ -19,7 +19,7 @@ int main()
 		i = j-1;
 		key = A[j];
 	
-	while (i>=0 && A[i]>=key)
+	while (i>-1 && A[i]>key)
 	{
 		A[i+1] = A[i];
 		i = i-1;
