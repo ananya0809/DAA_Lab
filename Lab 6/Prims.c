@@ -11,7 +11,7 @@ int mincost(int cost[], int visited[])
 	{
 		if(visited[i] == 0 && cost[i] < min)
 		{
-			min = visited[i];
+			min = cost[i];
 			index = i;
 		}
 	}
@@ -20,11 +20,20 @@ int mincost(int cost[], int visited[])
 
 void MST(int parent[], int Graph[V][V])
 {
-	int i;
+	int i, j, min;
 	printf("Edge\t Weight\n");
 	for(i = 1; i < V; i++)
 	{
-		printf("%d - %d\t %d\n", parent[i], i, Graph[i][parent[i]]);
+		min = 1;
+		for(j = 1; j < V; j++)
+		{
+			if(Graph[min][parent[min]] > Graph[j][parent[j]])
+			{
+				min = j;
+			}
+		}
+		printf("%d - %d\t %d\n", parent[min], min, Graph[min][parent[min]]);
+		Graph[min][parent[min]] = 9999;
 	}
 }
 
