@@ -2,7 +2,8 @@
 //199303010
 
 #include <stdio.h>
-#define V 5
+#define MAX 99
+int V;
 
 int mincost(int cost[], int visited[])
 {
@@ -18,7 +19,7 @@ int mincost(int cost[], int visited[])
 	return index;
 }
 
-void MST(int parent[], int Graph[V][V])
+void MST(int parent[], int Graph[MAX][MAX])
 {
 	int i, j, min;
 	printf("Edge\t Weight\n");
@@ -37,7 +38,7 @@ void MST(int parent[], int Graph[V][V])
 	}
 }
 
-void Prims(int Graph[V][V])
+void Prims(int Graph[MAX][MAX])
 {
 	int parent[V], cost[V], visited[V], start, i,j;
 	for(i = 0 ; i < V; i++)
@@ -65,29 +66,26 @@ void Prims(int Graph[V][V])
 
 int main() 
 {
-//	int Graph[MAX][MAX], i, j, n;
-//	int i, j;
-//	printf("Enter the number of vertices:\n");
-//	scanf("%d",&n);
-//	n = 5;
-	
-//	printf("Enter an adjacency matrix: \n");
-//	for(i = 0; i < n; i++)
-//	{
-//		for(j = 0; j < n; j++)
-//		{
-//			scanf("%d",&Graph[i][j]);
-//		}
-//		printf("\n");
-//	}
+	int Graph[MAX][MAX], i, j;
+	printf("Enter the number of vertices:\n");
+	scanf("%d",&V);
+	printf("Enter an adjacency matrix: \n");
+	for(i = 0; i < V; i++)
+	{
+		for(j = 0; j < V; j++)
+		{
+			scanf("%d",&Graph[i][j]);
+		}
+		printf("\n");
+	}
 
-	int Graph[V][V] = {
-		{0, 9, 75, 0, 0},
-		{9, 0, 95, 19, 42},
-		{75, 95, 0, 51, 66},
-		{0, 19, 51, 0, 31},
-		{0, 42,66, 31, 0}
-	};
+//	int Graph[V][V] = {
+//		{0, 9, 75, 0, 0},
+//		{9, 0, 95, 19, 42},
+//		{75, 95, 0, 51, 66},
+//		{0, 19, 51, 0, 31},
+//		{0, 42,66, 31, 0}
+//	};
 	//printf("Enter the starting vertex: \n");
 	//scanf("%d",&u);
 	Prims(Graph);
