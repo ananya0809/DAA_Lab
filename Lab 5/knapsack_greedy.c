@@ -41,6 +41,5 @@ int main()
 		printf("the profit by weight ratio of item %d = %.2f\n", i+1, r[i]);
 	}
 	maximum(r,n);
-	
-	
 }
+
