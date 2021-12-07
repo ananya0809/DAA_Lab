@@ -62,4 +62,5 @@ int main()
 	printf("The path followed is:\n");
 	mincost(0);
 	printf("\nminimum cost of travelling = %d", cost);
+	return 0;
 }
