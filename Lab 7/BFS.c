@@ -4,7 +4,7 @@
 #include<stdio.h>
 #define V 20
 
-int Graph[V][V], q[V], visited[V], n, i, j, f = 0, r = -1;
+int Graph[V][V], queue[V], visited[V], n, i, j, f = 0, r = -1;
 
 void BFS(int v)
 {
@@ -12,13 +12,13 @@ void BFS(int v)
 	{
 		if(Graph[v][i] && !visited[i])
 		{
-			q[++r] = i;
+			queue[++r] = i;
 		}
 	}
 	if(f <= r)
 	{
-		visited[q[f]] = 1;
-		BFS(q[f++]);
+		visited[queue[f]] = 1;
+		BFS(queue[f++]);
 	}
 }
 
@@ -29,7 +29,7 @@ int main()
 	scanf("%d",&n);
 	for(i = 1; i <= n; i++)
 	{
-		q[i] = 0;
+		queue[i] = 0;
 		visited[i] = 0;
 	}
 	printf("Enter an adjacency matrix: \n");
